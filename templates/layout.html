@@ -1,0 +1,59 @@
+<html>
+   <head>
+    <style>
+      table {
+      font-family: arial, sans-serif;
+      font-size: small;
+      border-collapse: collapse;
+      width: 85%;
+      margin-top:10px;
+      margin-left:100px;
+      margin-right:100px;
+      }
+      td,
+      th {
+      border: 1px solid #000000;
+      text-align: left;
+      padding: 8px;
+      }
+
+      th {
+        background-color: #8BA870;
+      }
+      tr:nth-child(even) {
+      background-color: #b7e0bee0;
+      }
+      tr:nth-child(odd) {
+      background-color: #d5ebc0fb;
+      }
+</style>
+     
+     <div tyle="color:#8BA870;" class="ui huge vertical segment">
+
+      <h2 style="color:#8BA870;" class="ui huge header">
+        <i class="folder open outline icon"></i><div class="content">
+          IP Address Information Generator
+          <div class="sub header">input an IPv4/IPv6 address to receive its information</div> 
+          
+
+        </div>
+      
+
+      <p></p>
+    </div>
+    
+
+
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</head>
+<body>
+    
+
+    {% block content %}
+    {% endblock %}
+
+  </div>
+</body>
+</html>

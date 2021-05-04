@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script>
+  var ip = "{{ result }}";
+  var cat = "{{ cat }}";
+  var info = "{{ info }}";
+  console.log(ip);
+  console.log(cat);
+  console.log(info);
+
+  var jdata = JSON.parse(info);
+
+
+  var jData = '[{"fname":"Mark", "lname":"Wood", "company":"Apple"},' +
+ '{"fname":"Steve", "lname":"Jones", "company":"Amazon"},' +
+ '{"fname":"Bill", "lname":"Peterson", "company":"HP"},' +
+ '{"fname":"Peter", "lname":"Jacobs", "company":"Dell"}]';
+
+  var seperator = ',';
+  $('#json').html(jData);
+  $('#get_prefixinfo').click(function() {
+     ConvertToTable(jData);
+  });
+
+ function ConvertToTable(jData) {
+    var arrJSON = typeof jData != 'object' ? JSON.parse(jData) : jData;
+    var $table = $('<table/>');
+    var $headerTr = $('<tr/>');
+ 
+   for (var index in arrJSON[0]) {
+      $headerTr.append($('<th/>').html(index));
+   }
+   $table.append($headerTr);
+   for (var i = 0; i < arrJSON.length; i++) {
+      var $tableTr = $('<tr/>');
+   for (var index in arrJSON[i]) {
+      $tableTr.append($('<td/>').html(arrJSON[i][index]));
+   }
+   $table.append($tableTr);
+ }
+
+ $('body').append($table);
+}
+</script>
+
+<div class="ui container">
+Enter IP Address Here:
+<br><br>
+
+
+<form method="post">
+  <div class="ui action input">
+      <input name="ip" type="text" placeholder="IP address..." id="ipaddr">
+      <button id="get_prefixinfo" type="submit" class="ui button orange">search</button><div style="color:#8BA870;" class="ui huge label">
+        Your IP: 
+        <div class="detail">{{ result }}</div>
+      </div>
+    </div>                  
+  </form>
+
+<br>
+<pre id="json"></pre>
+</div>
+<br>
+{{ info.to_html()|safe }}
+<br>
+{% endblock %}
