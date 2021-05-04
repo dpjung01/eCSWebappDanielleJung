@@ -54,29 +54,12 @@ def get_asninfo(ipaddrstr):
     #>>> type(key)
     #<class 'dict'>
 
-"""
-    summary()    
-
-def summary():
-    summary = ''
-    for i in response_data['ipv4_prefixes']:
-        line = [i['prefix'],i['ip'],i['name'],i['description'],i['country_code']]
-        line_str = ','.join(str(i) for i in line) + '\n'
-        summary += line_str
-    print(summary)
-
-def print_output(data):
-    print(data.summary)
-"""
-
 def main():
     print("hello") 
     get_asninfo("24.23.201.228")
 
 if __name__=='__main__':
     main()
-
-
 
 
 def test_input():
